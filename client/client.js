@@ -1,4 +1,4 @@
 /**
  * Set the brand name for this project
  */
-Session.set('brand-name', 'Rock Paper Scissors');
+Session.set('brand-name', 'Rock Paper Scissors Lizard Spock Multiplayer');
