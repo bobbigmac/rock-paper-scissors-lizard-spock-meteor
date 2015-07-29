@@ -1,0 +1,54 @@
+
+<template name="players">
+	{{#if this.playing}}
+		{{> game this.playing}}
+	{{else}}
+		{{#each this.players}}
+			<div class="row">
+				<div class="col-xs-12">
+					<button class="btn btn-default start-challenge">
+						Challenge: {{this.username}}
+					</button>
+				</div>
+			</div>
+		{{/each}}
+	{{/if}}
+</template>
+
+<template name="game">
+	<!-- {{log this}} -->
+	{{#each this.players}}
+		<div>
+			{{#with player this}}{{this.username}}{{/with}}
+			:
+			{{#if playerMoved this ../moved}}
+				{{#if playerMove this ../moves}}
+					{{playerMove this ../moves}}
+				{{else}}
+					moved
+				{{/if}}
+			{{else}}
+				{{#if equal currentUser._id this}}
+					{{#each choices}}
+						<button class="btn btn-default set-choice">
+							<i class="fa fa-{{this.icon}}"></i>
+							<span>{{this.name}}</span>
+						</button>
+					{{/each}}
+				{{else}}
+					waiting
+				{{/if}}
+			{{/if}}
+		</div>
+	{{/each}}
+	
+	{{#if winner}}
+		<div>
+			{{#if equal this.winner 'draw'}}
+				Draw!
+			{{else}}
+				Winner: {{#with player this.winner}}{{this.username}}{{/with}}
+			{{/if}}
+		</div>
+	{{/if}}
+</template>

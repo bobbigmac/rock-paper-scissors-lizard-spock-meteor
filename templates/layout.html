@@ -1,0 +1,26 @@
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+</body>
+
+<template name="layout">
+	{{pageTitle}}
+	{{>nav}}
+	<div class="container">
+	  <div class="row">
+	    <div class="col-sm-12">
+	    	{{>yield}}
+	    </div>
+	  </div>
+	</div>
+</template>
+
+<template name="loading">
+	<!-- Loading... -->
+</template>
+
+<template name="notFound">
+	Not found!
+</template>
