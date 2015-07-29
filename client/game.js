@@ -4,6 +4,10 @@ Template.game.events({
 		var userId = Meteor.userId();
 		var game = (userId && Games.findOne({ open: true, players: userId }));
 		Meteor.call('set-choice', game._id, this.value);
+	},
+	'click .abandon-game': function() {
+		//console.log(this);
+		Games.remove(this._id);
 	}
 });
 

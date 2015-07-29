@@ -41,7 +41,7 @@
 			{{/if}}
 		</div>
 	{{/each}}
-	
+
 	{{#if winner}}
 		<div>
 			{{#if equal this.winner 'draw'}}
@@ -50,5 +50,7 @@
 				Winner: {{#with player this.winner}}{{this.username}}{{/with}}
 			{{/if}}
 		</div>
+	{{else}}
+		<button class="btn btn-warning abandon-game pull-right">Abandon</button>
 	{{/if}}
 </template>
